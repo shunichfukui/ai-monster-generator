@@ -2,8 +2,10 @@ import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <p>テスト</p>
-    </main>
+    <div className={styles.container}>
+      <main className={styles.main}>
+        <h1 className={styles.title}>AI Poke Generator</h1>
+      </main>
+    </div>
   );
 }
