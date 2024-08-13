@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { POKEMON_ATTRIBUTES } from '../constants';
 import styles from './PokemonForm.module.css';
@@ -14,10 +12,6 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (attribute === '') {
-      alert('ポケモンの属性を選択してください。');
-      return;
-    }
     onSubmit(description, attribute);
   };
 
