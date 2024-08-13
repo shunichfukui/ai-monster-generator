@@ -51,3 +51,10 @@
 .regenerateButton:hover {
   background-color: #e04040;
 }
+
+.loadingText {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 1rem;
+}
