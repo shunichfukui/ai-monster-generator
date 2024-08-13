@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f0f4f8;
+  background-color: #333;
 }
 
 .main {
@@ -20,4 +20,5 @@
 .title {
   color: #0070f3;
   font-size: 4rem;
+  margin-bottom: 2rem;
 }
