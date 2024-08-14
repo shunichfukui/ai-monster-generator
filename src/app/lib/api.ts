@@ -13,23 +13,27 @@ export default async function fetchPokemonImage({
 
   try {
     const { data } = await axios.post(
-      'https://api.openai.com/v1/images/generations',
+      'https://api.getimg.ai/v1/flux-schnell/text-to-image',
       {
         prompt,
-        num_images: 1,
-        size: '512x512',
+        width: 1024,
+        height: 1024,
+        steps: 1,
+        seed: 0,
+        output_format: 'jpeg',
         response_format: 'url',
       },
       {
         headers: {
+          Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_GETIMG_API_KEY}`,
         },
       }
     );
 
     // 画像URLの取得
-    return data?.data?.[0]?.url || '';
+    return data?.url || '';
   } catch (error) {
     console.error('Error generating image:', error);
     return '';
