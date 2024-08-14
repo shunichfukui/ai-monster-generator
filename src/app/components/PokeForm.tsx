@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { POKEMON_ATTRIBUTES } from '../constants';
-import styles from './PokemonForm.module.css';
+import styles from './PokeForm.module.css';
 
 interface PokemonFormProps {
   onSubmit: (description: string, attribute: string) => void;

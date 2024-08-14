@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import PokemonForm from './components/PokemonForm';
+import PokeForm from './components/PokeForm';
 import styles from './page.module.css';
 import fetchPokemonImage from './lib/api';
 import Image from 'next/image';
@@ -47,7 +47,7 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>AI Pokémon Generator</h1>
-        <PokemonForm onSubmit={handleFormSubmit} />
+        <PokeForm onSubmit={handleFormSubmit} />
         <div className={styles.imageContainer}>
           {isLoading ? (
             <>
