@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-interface FetchPokemonImageParams {
+interface FetchMonsterImageParams {
   description: string;
   attribute: string;
 }
 
-export default async function fetchPokemonImage({
+export default async function fetchMonsterImage({
   description,
   attribute,
-}: FetchPokemonImageParams): Promise<string> {
+}: FetchMonsterImageParams): Promise<string> {
   const prompt = `A fictional creature inspired by the characteristics of ${description}, designed to resemble a ${attribute} type without directly copying any existing Pokémon. The overall design should incorporate elements that reflect the ${attribute} type, with colors and shapes that emphasize its nature. Ensure the creature appears whimsical and imaginative, with no direct resemblance to any existing Pokémon.`;
 
   try {

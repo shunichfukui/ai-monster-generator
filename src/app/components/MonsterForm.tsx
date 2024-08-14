@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { POKEMON_ATTRIBUTES } from '../constants';
-import styles from './PokeForm.module.css';
+import { MONSTER_ATTRIBUTES } from '../constants';
+import styles from './MonsterForm.module.css';
 
-interface PokemonFormProps {
+interface MonsterFormProps {
   onSubmit: (description: string, attribute: string) => void;
 }
 
-export default function PokemonForm({ onSubmit }: PokemonFormProps) {
+export default function MonsterForm({ onSubmit }: MonsterFormProps) {
   const [description, setDescription] = useState('');
   const [attribute, setAttribute] = useState('');
 
@@ -21,7 +21,7 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="ポケモンの特徴を入力"
+        placeholder="生成するポケモンの特徴を入力"
         required
         className={styles.input}
       />
@@ -32,7 +32,7 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
         className={styles.select}
       >
         <option value="">選択してください</option>
-        {POKEMON_ATTRIBUTES.map((attr) => (
+        {MONSTER_ATTRIBUTES.map((attr) => (
           <option key={attr} value={attr}>
             {attr}
           </option>

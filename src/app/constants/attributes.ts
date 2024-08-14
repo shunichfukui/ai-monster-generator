@@ -1,4 +1,4 @@
-export const POKEMON_ATTRIBUTES = [
+export const MONSTER_ATTRIBUTES = [
   '炎',
   '電気',
   '水',
