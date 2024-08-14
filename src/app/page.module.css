@@ -52,6 +52,13 @@
   background-color: #e04040;
 }
 
+.shareButton {
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background-color: #1da1f2;
+}
+
 .loadingText {
   color: #ffffff;
   font-size: 1.2rem;

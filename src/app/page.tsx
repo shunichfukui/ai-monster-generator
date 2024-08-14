@@ -34,6 +34,15 @@ export default function Home() {
     setIsLoading(false);
   };
 
+  const handleXShare = () => {
+    const shareUrl = encodeURIComponent(pokemonImage);
+    const twitterText = encodeURIComponent(
+      `ついに発見！${formData.description}、${formData.attribute}タイプの新しいポケモン！？😂 \n #ポケモンライクな画像生成 \n`
+    );
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${twitterText}&url=${shareUrl}`;
+    window.open(twitterUrl, '_blank');
+  };
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -65,6 +74,9 @@ export default function Home() {
                   onClick={handleRegenerate}
                 >
                   再生成
+                </button>
+                <button className={styles.shareButton} onClick={handleXShare}>
+                  X（旧Twitter）で自慢する
                 </button>
               </>
             )
