@@ -11,6 +11,17 @@
   margin: 0 auto;
 }
 
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: #ecf0f1;
+}
+
 .input {
   padding: 0.75rem;
   font-size: 1rem;

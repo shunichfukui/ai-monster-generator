@@ -26,18 +26,10 @@ export default function Home() {
     setIsLoading(false);
   };
 
-  const handleRegenerate = async () => {
-    const { description, attribute } = formData;
-    setIsLoading(true);
-    const imageUrl = await fetchMonsterImage({ description, attribute });
-    setMonsterImage(imageUrl);
-    setIsLoading(false);
-  };
-
   const handleXShare = () => {
     const shareUrl = encodeURIComponent(monsterImage);
     const twitterText = encodeURIComponent(
-      `ついに発見！${formData.description}、${formData.attribute}タイプの新しいピーモン！？😂 \n #ピーモンライクな画像生成 \n`
+      `ついに発見！${formData.description}、${formData.attribute}タイプの新しいモンスター！？😂 \n #モンスター画像生成 \n`
     );
     const twitterUrl = `https://twitter.com/intent/tweet?text=${twitterText}&url=${shareUrl}`;
     window.open(twitterUrl, '_blank');
@@ -47,7 +39,10 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>AI Monster Generator</h1>
-        <MonsterForm onSubmit={handleFormSubmit} />
+        <MonsterForm
+          onSubmit={handleFormSubmit}
+          isRegenerated={!!monsterImage}
+        />
         <div className={styles.imageContainer}>
           {isLoading ? (
             <>
@@ -64,17 +59,11 @@ export default function Home() {
               <>
                 <Image
                   src={monsterImage}
-                  alt="Generated Pokémon"
+                  alt="Generated Monster"
                   className={styles.monsterImage}
                   width={300}
                   height={300}
                 />
-                <button
-                  className={styles.regenerateButton}
-                  onClick={handleRegenerate}
-                >
-                  再生成
-                </button>
                 <button className={styles.shareButton} onClick={handleXShare}>
                   X（旧Twitter）で自慢する
                 </button>

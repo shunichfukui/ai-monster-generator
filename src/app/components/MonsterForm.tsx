@@ -4,9 +4,13 @@ import styles from './MonsterForm.module.css';
 
 interface MonsterFormProps {
   onSubmit: (description: string, attribute: string) => void;
+  isRegenerated: boolean;
 }
 
-export default function MonsterForm({ onSubmit }: MonsterFormProps) {
+export default function MonsterForm({
+  onSubmit,
+  isRegenerated,
+}: MonsterFormProps) {
   const [description, setDescription] = useState('');
   const [attribute, setAttribute] = useState('');
 
@@ -17,29 +21,43 @@ export default function MonsterForm({ onSubmit }: MonsterFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <input
-        type="text"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="生成するポケモンの特徴を入力"
-        required
-        className={styles.input}
-      />
-      <select
-        value={attribute}
-        onChange={(e) => setAttribute(e.target.value)}
-        required
-        className={styles.select}
-      >
-        <option value="">選択してください</option>
-        {MONSTER_ATTRIBUTES.map((attr) => (
-          <option key={attr} value={attr}>
-            {attr}
-          </option>
-        ))}
-      </select>
+      <div className={styles.formGroup}>
+        <label htmlFor="description" className={styles.label}>
+          モンスターの特徴（英語で入力）
+        </label>
+        <input
+          id="description"
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="例: Fierce, Cute, Majestic"
+          required
+          className={styles.input}
+        />
+      </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="attribute" className={styles.label}>
+          モンスターの属性を選択
+        </label>
+        <select
+          id="attribute"
+          value={attribute}
+          onChange={(e) => setAttribute(e.target.value)}
+          required
+          className={styles.select}
+        >
+          <option value="">選択してください</option>
+          {MONSTER_ATTRIBUTES.map((attr) => (
+            <option key={attr.en} value={attr.en}>
+              {attr.ja}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <button type="submit" className={styles.button}>
-        生成
+        {isRegenerated ? '再度画像を生成する' : 'モンスター画像の生成'}
       </button>
     </form>
   );
