@@ -7,10 +7,7 @@ interface MonsterFormProps {
   isRegenerated: boolean;
 }
 
-export default function MonsterForm({
-  onSubmit,
-  isRegenerated,
-}: MonsterFormProps) {
+const MonsterForm = ({ onSubmit, isRegenerated }: MonsterFormProps) => {
   const [description, setDescription] = useState('');
   const [attribute, setAttribute] = useState('');
 
@@ -61,4 +58,6 @@ export default function MonsterForm({
       </button>
     </form>
   );
-}
+};
+
+export default MonsterForm;

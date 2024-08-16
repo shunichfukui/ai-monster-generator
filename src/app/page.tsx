@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-import fetchMonsterImage from './lib/api';
+import fetchMonsterImage from './lib/getimgApi';
 import Image from 'next/image';
 import Loading from 'react-loading';
 import MonsterForm from './components/MonsterForm';
