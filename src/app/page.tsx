@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-import fetchMonsterImage from './lib/getimgApi';
+import fetchMonsterImage from './lib/api';
 import Image from 'next/image';
 import Loading from 'react-loading';
 import MonsterForm from './components/MonsterForm';
@@ -35,6 +35,18 @@ export default function Home() {
     window.open(twitterUrl, '_blank');
   };
 
+  const LoadingSection = () => (
+    <>
+      <Loading
+        type="spinningBubbles"
+        color="#0070f3"
+        height={300}
+        width={300}
+      />
+      <p className={styles.loadingText}>画像を生成中です…</p>
+    </>
+  );
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -45,15 +57,7 @@ export default function Home() {
         />
         <div className={styles.imageContainer}>
           {isLoading ? (
-            <>
-              <Loading
-                type="spinningBubbles"
-                color="#0070f3"
-                height={100}
-                width={100}
-              />
-              <p className={styles.loadingText}>画像を生成中です…</p>
-            </>
+            <LoadingSection />
           ) : (
             monsterImage && (
               <>
